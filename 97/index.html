@@ -192,8 +192,48 @@ src="https://www.facebook.com/tr?id=839458723578876&ev=PageView&noscript=1"
             <img class="img-fluid mb-3" src="us.png">
             <h2 class="headline mb-3">USE ESSAS 4 MENSAGENS SECRETAS E <font style="color: red;">QUALQUER HOMEM</font> VAI CORRER ATRÁS DE VOCÊ!</h2>
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe src="https://player.vimeo.com/video/508066857?autoplay=1&loop=1&autopause=0" frameborder="0"
-                allow="autoplay; fullscreen" allowfullscreen></iframe>
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<div class="embed-responsive embed-responsive-16by9 my-3">
+  <img id="unmute" class="embed-responsive-item" src="https://cloudcode.site/unmute.png" style="z-index: 1;display: flex;" onclick="player.playVideo();document.getElementById('unmute').style.display='none';document.getElementById('pause').style.display='block';player.unMute();">
+  <img id="play" class="embed-responsive-item" src="https://cloudcode.site/play.png" style="z-index: 1;display: none;" onclick="player.playVideo();document.getElementById('play').style.display='none';document.getElementById('pause').style.display='block';player.playVideo();">
+  <div id="pause" class="embed-responsive-item" style="z-index: 1; display: none;" onclick="player.pauseVideo();document.getElementById('play').style.display='flex';document.getElementById('pause').style.display='none';"></div>
+  <div id="player"></div>
+  <script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'uPVvMDPJuAo',
+        playerVars: {
+          'autoplay': 1,
+          'controls': 0,
+          'rel': 0,
+          'disablekb': 0
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      player.mute()
+      event.target.playVideo();
+    }
+    var done = false;
+
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        done = true;
+      }
+    }
+  </script>
+</div>
             </div>
             <div id="btn1" class="hide mt-3">
               <a href="https://seguro.activeliss.com/checkout/8567837045/12?af=AF-5051998" class="a-btn">
